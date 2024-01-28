@@ -191,10 +191,20 @@ local weaponTable = {
     [317205821]   = "CLASS 2: Autoshotgun",
     [-1568386805] = "CLASS 5: GRENADE LAUNCHER",
     [-1312131151] = "CLASS 5: RPG",
-    [125959754]   = "CLASS 5: Compactlauncher"
+    [125959754]   = "CLASS 5: Compactlauncher",
+    [-1218515535]   = "AIRSOFT", -- M249
+    [-2111287445]   = "AIRSOFT", -- R870
+    [582462360]   = "AIRSOFT", -- GLOCK20
+    -- []   = "AIRSOFT", -- uzi
+    [-1208013008]   = "AIRSOFT", --M4
+    [264577577]   = "AIRSOFT", --R700
+    [-1858923443]   = "AIRSOFT", --MP5 
+    [-1933472956]   = "AIRSOFT", --G36C
+    [-858359756]   = "AIRSOFT", --AK47
 }
 
 function GetWeaponName()
     local currentWeapon = GetSelectedPedWeapon(cache.ped)
+    print(currentWeapon)
     return weaponTable[currentWeapon] or "Unknown"
 end

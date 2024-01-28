@@ -26,6 +26,10 @@ exports('VehicleTheft', VehicleTheft)
 
 local function Shooting()
     local coords = GetEntityCoords(cache.ped)
+    local weaponName = GetWeaponName()
+    if weaponName == "AIRSOFT" then
+        return
+    end
 
     local dispatchData = {
         message = locale('shooting'),
@@ -36,7 +40,7 @@ local function Shooting()
         coords = coords,
         street = GetStreetAndZone(coords),
         gender = GetPlayerGender(),
-        weapon = GetWeaponName(),
+        weapon = weaponName,
         alertTime = nil,
         jobs = { 'leo' }
     }
@@ -48,13 +52,18 @@ exports('Shooting', Shooting)
 local function Hunting()
     local coords = GetEntityCoords(cache.ped)
 
+    local weaponName = GetWeaponName()
+    if weaponName == "AIRSOFT" then
+        return
+    end
+
     local dispatchData = {
         message = locale('hunting'),
         codeName = 'hunting',
         code = '10-13',
         icon = 'fas fa-gun',
         priority = 2,
-        weapon = GetWeaponName(),
+        weapon = weaponName,
         coords = coords,
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
@@ -70,6 +79,11 @@ local function VehicleShooting()
     local coords = GetEntityCoords(cache.ped)
     local vehicle = GetVehicleData(cache.vehicle)
 
+    local weaponName = GetWeaponName()
+    if weaponName == "AIRSOFT" then
+        return
+    end
+
     local dispatchData = {
         message = locale('vehicleshots'),
         codeName = 'vehicleshots',
@@ -77,7 +91,7 @@ local function VehicleShooting()
         icon = 'fas fa-gun',
         priority = 2,
         coords = coords,
-        weapon = GetWeaponName(),
+        weapon = weaponName,
         street = GetStreetAndZone(coords),
         heading = GetPlayerHeading(),
         vehicle = vehicle.name,
@@ -575,6 +589,7 @@ local function PhoneCall(message, anonymous, job, type)
 
     if IsCallAllowed(message) then
         PhoneAnimation()
+        print("calling")
 
         local dispatchData = {
             message = anonymous and locale('anon_call') or locale('call'),
