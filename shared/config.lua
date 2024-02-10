@@ -33,11 +33,11 @@ Config.PhoneItems = { -- Add the entire list of your phone items.
 }
 
 -- Locations for the Hunting Zones and No Dispatch Zones( Label: Name of Blip // Radius: Radius of the Alert and Blip)
-Config.EnableHuntingBlip = false
+Config.EnableHuntingBlip = true
 
 Config.Locations = {
     ["HuntingZones"] = {
-        [1] = {label = "Hunting Zone", radius = 650.0, coords = vector3(-938.61, 4823.99, 313.92)},
+        [1] = {label = "Dangerous Hunting Zone", radius = 250.0, coords = vector3(2824.14, 5968.80, 350.87)},
     },
     ["NoDispatchZones"] = {
         [1] = {label = "Ammunation 1", coords = vector3(13.53, -1097.92, 29.8), length = 14.0, width = 5.0, heading = 70, minZ = 28.8, maxZ = 32.8},
