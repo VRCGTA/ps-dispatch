@@ -112,8 +112,8 @@ AddEventHandler('gameEventTriggered', function(name, args)
             exports['ps-dispatch']:OfficerDown()
         elseif PlayerData.job.type == 'ems' then
             exports['ps-dispatch']:EmsDown()
-        else
-            exports['ps-dispatch']:InjuriedPerson()
+        -- else
+        --     exports['ps-dispatch']:InjuriedPerson()
         end
     end)
 end)
