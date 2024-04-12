@@ -84,8 +84,11 @@ local function setWaypoint()
 
     if not data then return end
 
-    if data.alertTime == nil then data.alertTime = Config.AlertTime end
+    if data.alertTime == nil then 
+        data.alertTime = Config.AlertTime 
+    end
     local timer = data.alertTime * 1000
+
     
     if not waypointCooldown and lib.table.contains(data.jobs, PlayerData.job.type) then
         SetNewWaypoint(data.coords.x, data.coords.y)

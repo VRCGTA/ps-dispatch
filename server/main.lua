@@ -10,7 +10,7 @@ end)
 RegisterServerEvent('ps-dispatch:server:notify', function(data)
     callCount = callCount + 1
     data.id = callCount
-    data.time = os.time() * 1000
+    data.time = os.time()
     data.units = {}
     data.responses = {}
 
@@ -54,7 +54,15 @@ end)
 
 -- Callbacks
 lib.callback.register('ps-dispatch:callback:getLatestDispatch', function(source)
-    return calls[#calls]
+    if calls[#calls] then
+        if os.difftime(os.time(), calls[#calls].time) < 15 then
+            return calls[#calls]
+        else
+            return nil
+        end
+    else
+        return nil
+    end
 end)
 
 lib.callback.register('ps-dispatch:callback:getCalls', function(source)
