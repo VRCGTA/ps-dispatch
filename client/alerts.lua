@@ -597,7 +597,7 @@ local function PhoneCall(message, anonymous, job, type)
             priority = 2,
             coords = coords,
             name = anonymous and locale('anon') or (PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname),
-            number = anonymous and locale('hidden_number') or PlayerData.charinfo.phone,
+            number = locale('hidden_number'),
             information = message,
             street = GetStreetAndZone(coords),
             alertTime = nil,
